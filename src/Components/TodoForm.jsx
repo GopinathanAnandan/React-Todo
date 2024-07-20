@@ -1,14 +1,33 @@
-
 import React, { useState } from 'react';
 
 const TodoForm = ({ addTodo }) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+    const [nameError, setNameError] = useState('');
+    const [descriptionError, setDescriptionError] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!name.trim()) return;
+
+        // Reset previous error messages
+        setNameError('');
+        setDescriptionError('');
+
+        // Validate inputs
+        if (!name.trim()) {
+            setNameError('Please enter a todo name.');
+            return;
+        }
+
+        if (!description.trim()) {
+            setDescriptionError('Please enter a todo description.');
+            return;
+        }
+
+        // If valid, add todo
         addTodo({ name, description, status: 'not completed' });
+
+        // Clear input fields
         setName('');
         setDescription('');
     };
@@ -24,6 +43,7 @@ const TodoForm = ({ addTodo }) => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
+                    {nameError && <div className="text-danger">{nameError}</div>}
                 </div>
                 <div className="col">
                     <input
@@ -33,6 +53,7 @@ const TodoForm = ({ addTodo }) => {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
+                    {descriptionError && <div className="text-danger">{descriptionError}</div>}
                 </div>
                 <div className="col-auto">
                     <button type="submit" className="btn btn-primary">
@@ -45,4 +66,3 @@ const TodoForm = ({ addTodo }) => {
 };
 
 export default TodoForm;
-

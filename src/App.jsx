@@ -9,12 +9,15 @@ import FilterTodos from './Components/FilterTodos';
 function App() {
   const [todos, setTodos] = useState([]);
   const [filteredTodos, setFilteredTodos] = useState([]);
+  const [nextId, setNextId] = useState(1);
+
 
   // Function to add a new todo
   const addTodo = (todo) => {
-    const newTodo = { ...todo, id: Date.now().toString() };
+    const newTodo = { ...todo, id: nextId };//Date.now().toString()
     setTodos([...todos, newTodo]);
     setFilteredTodos([...filteredTodos, newTodo]); // Update filtered todos
+    setNextId(nextId + 1);
   };
 
   // Function to update the status of a todo

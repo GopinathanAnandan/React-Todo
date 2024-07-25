@@ -23,7 +23,7 @@ function App() {
   // Function to update the status of a todo
   const updateTodoStatus = (id) => {
     const updatedTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, status: todo.status === 'completed' ? 'not completed' : 'completed' } : todo
+      todo.id === id ? { ...todo, status: todo.status === 'Completed' ? 'Not completed' : 'Completed' } : todo
     );
     setTodos(updatedTodos);
     setFilteredTodos(updatedTodos); // Update filtered todos

@@ -23,7 +23,7 @@ function App() {
   // Function to update the status of a todo
   const updateTodoStatus = (id) => {
     const updatedTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, status: todo.status === 'Completed' ? 'Not completed' : 'Completed' } : todo
+      todo.id === id ? { ...todo, status: todo.status === 'completed' ? 'not completed' : 'completed' } : todo
     );
     setTodos(updatedTodos);
     setFilteredTodos(updatedTodos); // Update filtered todos
@@ -40,11 +40,11 @@ function App() {
   const handleFilterChange = (filter) => {
     let filtered;
     switch (filter) {
-      case 'Completed':
-        filtered = todos.filter((todo) => todo.status === 'Completed');
+      case 'completed':
+        filtered = todos.filter((todo) => todo.status === 'completed');
         break;
-      case 'Not completed':
-        filtered = todos.filter((todo) => todo.status !== 'Completed');
+      case 'not completed':
+        filtered = todos.filter((todo) => todo.status !== 'completed');
         break;
       default:
         filtered = todos;

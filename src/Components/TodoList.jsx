@@ -77,7 +77,7 @@ const TodoList = ({ todos, updateTodoStatus, deleteTodo }) => {
                                             className="btn btn-sm btn-outline-success ms-2"
                                             onClick={() => handleStatusChange(todo.id)}
                                         >
-                                            {todo.status === 'Completed' ? 'Mark Not Completed' : 'Mark Completed'}
+                                            {todo.status === 'completed' ? 'Mark Not Completed' : 'Mark Completed'}
                                         </button>
                                     </h6>
                                     <button className="btn btn-sm btn-primary me-2" onClick={() => handleEdit(todo.id)}>Edit</button>

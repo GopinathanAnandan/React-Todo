@@ -40,11 +40,11 @@ function App() {
   const handleFilterChange = (filter) => {
     let filtered;
     switch (filter) {
-      case 'completed':
-        filtered = todos.filter((todo) => todo.status === 'completed');
+      case 'Completed':
+        filtered = todos.filter((todo) => todo.status === 'Completed');
         break;
-      case 'not completed':
-        filtered = todos.filter((todo) => todo.status !== 'completed');
+      case 'Not completed':
+        filtered = todos.filter((todo) => todo.status !== 'Completed');
         break;
       default:
         filtered = todos;
